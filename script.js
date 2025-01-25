@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function(){
         const listItem = document.createElement("li");
         listItem.textContent = taskText;
 
+        // Add an event listener to toggle completed tasks
+        listItem.addEventListener('click', function() {
+            listItem.classList.toggle('completed');  // Add or remove the "completed" class
+        });
+
         // Create a remove button
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
