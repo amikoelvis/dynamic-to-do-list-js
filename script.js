@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskInput = document.getElementById("task-input");
     const taskList = document.getElementById("task-list");
 
+    // Load tasks from Local Storage
+    function loadTasks() {
+        // Retrieve stored tasks from Local Storage
+        const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        
+        // For each task in the array, call addTask to add it to the list
+        storedTasks.forEach(taskText => addTask(taskText, false)); // 'false' means not to save again to Local Storage
+    }
+
     // Add a task and save it to Local Storage
     function addTask() {
         // Step 1: Retrieve and trim the input value
